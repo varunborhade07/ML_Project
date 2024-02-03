@@ -1,0 +1,71 @@
+<!-- app/templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attrition Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <form action="/predict" method="post">
+        <label for="grade1">Test 1:</label>
+        <input type="number" name="grade1" placeholder="Enter Test 1 marks" required><br>
+
+        <label for="grade2">Test 2:</label>
+        <input type="number" name="grade2" placeholder="Enter Test 2 marks " required><br>
+
+        <label for="grade3">Test 3:</label>
+        <input type="number" name="grade3" placeholder="Enter Test 3 marks " required><br>
+
+        <label for="attendance">Attendance:</label>
+        <input type="number" name="attendance" placeholder="Enter Attendance" required><br>
+
+        <label for="interest">Interest:</label>
+        <select name="interest" required>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+
+    <h2> Prediction:</h2>
+    <p>{{ message }}</p>
+</body>
+</html>
